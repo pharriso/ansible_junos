@@ -1,0 +1,10 @@
+[juniper]
+54.154.216.134
+
+[juniper:vars]
+ansible_user=ec2-user
+ansible_network_os=junos
+ansible_connection=netconf
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+#ansible_become_method=enable
+#ansible_become_password=Redhat123

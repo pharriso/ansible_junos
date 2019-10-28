@@ -1,0 +1,15 @@
+set system syslog archive size 300000
+set system syslog archive files 3
+set system syslog archive world-readable
+set system syslog user * any emergency
+set system syslog host 192.168.100.70 any any
+set system syslog host 192.168.100.70 interactive-commands any
+set system syslog host 192.168.100.70 facility-override local1
+set system syslog host 192.168.100.70 log-prefix firewall
+set system syslog host 192.168.100.70 source-address "{{ inventory_hostname }}"
+set system syslog host 192.168.100.70 explicit-priority
+set system syslog file messages any critical
+set system syslog file messages authorization info
+set system syslog file default-log-messages structured-data
+set system syslog file sessions user info
+set system syslog file interactive-commands interactive-commands error

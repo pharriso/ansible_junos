@@ -1,0 +1,15 @@
+---
+
+- name: configure junos srx
+  hosts: juniper
+  gather_facts: false
+  tasks:
+  - name: load syslog configuration
+    junos_config:
+      src: files/syslog_config
+      comment: syslog config
+
+  - name: configure admin user
+    junos_config:
+      src: files/admin_user
+      comment: admin user config
