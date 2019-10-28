@@ -9,7 +9,7 @@
       src: files/syslog_config
       comment: syslog config
 
-  - name: configure admin user
+  - name: configure administrator user
     junos_config:
       src: files/admin_user
       comment: admin user config
