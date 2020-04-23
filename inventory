@@ -1,6 +1,5 @@
 [juniper]
-54.154.216.134
-
+18.203.162.117
 [juniper:vars]
 ansible_user=ec2-user
 ansible_network_os=junos

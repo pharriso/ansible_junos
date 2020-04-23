@@ -8,8 +8,30 @@
     junos_config:
       src: files/syslog_config
       comment: syslog config
+    register: task
+    diff: true
+
+  - name: print success
+    debug:
+      msg: syslog configuration - OK
+    when: not {{ task.changed }}
+
+  - name: print failed
+    debug:
+      msg: syslog configuration - failed with {{ task.diff.prepared }}
+    when: "{{ task.changed }}"
+
+  - copy:
+      dest: /tmp/diff
+      content: "{{ task.diff.prepared }}"
+    when: "{{ task.changed }}"
+    vars:
+      connection: local
 
   - name: configure admin user
     junos_config:
       src: files/admin_user
       comment: admin user config
+
+  - debug:
+      var: task
